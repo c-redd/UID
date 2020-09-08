@@ -6,19 +6,67 @@
 package uidsystem;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+
+import uidsystem.JpaEntityManager;
+import uidsystem.Test_Voters;
 
 /**
  *
  * @author FLAVA FM PRODUCTION
  */
+
 public class LOGIN extends javax.swing.JFrame {
+
 
     /**
      * Creates new form LOGIN
      */
+    public Date parseDate(String dateEntry){
+    try {
+            String pattern = "dd-MM-yyyy";
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+            Date date = simpleDateFormat.parse(dateEntry);
+            return date;
+    }catch (ParseException ex) {
+            Logger.getLogger(LOGIN.class.getName()).log(Level.SEVERE, null, ex);
+            return new Date();
+        }
+    }
+//    public List<Test_Voters> converToTest(List<Object[]> q){
+//        List<Test_Voters> list= new ArrayList<Test_Voters>();
+//
+//        Iterator it = q.iterator();
+//        while(it.hasNext()){
+//             Object[] line = it.next();
+//             Test_Voters voters = new Test_Voters();
+//             voters.setClientID(line[0]);
+//             voters.setCardNumber(line[1]);
+//             voters.setIssueDate(line[2]);
+//             voters.setPollingStation(line[3]);
+//             //And set all the Equip fields here
+//             //And last thing add it to the list
+//
+//             list.add(voters);
+//            }
+//        return list;
+//    }
+    
     public LOGIN() {
-        initComponents();
+           initComponents();
     }
 
     /**

@@ -559,7 +559,7 @@ public class ClientInformation extends javax.swing.JFrame {
     private void jTextFieldSearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldSearchKeyPressed
         // How to Search
         DefaultTableModel tbModel = (DefaultTableModel)jTableNRC.getModel();
-        TableRowSorter<DefaultTableModel> tr=new TableRowSorter<DefaultTableModel>(tbModel);
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(tbModel);
         jTableNRC.setRowSorter(tr);
         tr.setRowFilter(RowFilter.regexFilter(jTextFieldSearch.getText().trim()));
     }//GEN-LAST:event_jTextFieldSearchKeyPressed
@@ -586,6 +586,7 @@ public class ClientInformation extends javax.swing.JFrame {
             jTextFieldLN.setText("");
             jTextFieldDOB.setText("");
             jTextFieldGen.setText("");
+            
         }
     }//GEN-LAST:event_jButtonSAVEActionPerformed
 
@@ -694,7 +695,7 @@ public class ClientInformation extends javax.swing.JFrame {
     private void jLabelUSERREGMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelUSERREGMouseClicked
         // TODO add your handling code here:
         this.dispose();
-        UserReg UR=new UserReg();
+        UserReg UR = new UserReg();
         UR.setVisible(true);
     }//GEN-LAST:event_jLabelUSERREGMouseClicked
 
