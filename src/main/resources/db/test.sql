@@ -5,8 +5,11 @@
  */
 /**
  * Author:  yd65
- * Created: Sep 8, 2020
+ * Created: Sep 9, 2020
  */
+
+DROP TABLE test_Voters;
+DROP TABLE test_PollingStation;
 
 CREATE TABLE test_PollingStation (
 PollingStationID int NOT NULL,
