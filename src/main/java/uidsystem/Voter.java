@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uidsystem;
 
+package uidsystem;
 import java.text.MessageFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -22,8 +22,8 @@ import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
-//This is the entity  
-import uidsystem.Test_Voters;
+import uidsystem.Home;
+import uidsystem.UserReg;
 /**
  *
  * @author FLAVA FM PRODUCTION
@@ -472,7 +472,7 @@ public class Voter extends javax.swing.JFrame {
             .addGroup(jPanelBodyLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(jPanelBodyLayout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -585,6 +585,7 @@ public class Voter extends javax.swing.JFrame {
     
     public void updateDisplay(){
                 // Store the entries from the text fields into and String Array
+                
                 EntityManager em = createEntityManager();
                 Query q = em.createNativeQuery("SELECT * FROM test_Voters", Test_Voters.class);
 //                
@@ -607,7 +608,6 @@ public class Voter extends javax.swing.JFrame {
         }else{
                 
                 EntityManager em = createEntityManager();
-
                 // Example Voter Instannce
                 Test_Voters voter = new Test_Voters();
                 

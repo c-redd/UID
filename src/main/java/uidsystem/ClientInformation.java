@@ -5,24 +5,28 @@
  */
 package uidsystem;
 
+import java.awt.Image;
+import java.io.File;
 import java.text.MessageFormat;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.RowFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
-import java.sql.*;  
 
 /**
  *
  * @author FLAVA FM PRODUCTION
  */
-public class Driver extends javax.swing.JFrame {
+public class ClientInformation extends javax.swing.JFrame {
 
     /**
-     * Creates new form Driver
+     * Creates new form ClientInformation
      */
-    public Driver() {
+    public ClientInformation() {
         initComponents();
     }
 
@@ -38,15 +42,6 @@ public class Driver extends javax.swing.JFrame {
         jPanelHeader = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jPanelMenu = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabelCLIENT = new javax.swing.JLabel();
-        jLabelNRC = new javax.swing.JLabel();
-        jLabelPASSPORT = new javax.swing.JLabel();
-        jLabelDRIVER = new javax.swing.JLabel();
-        jLabelLOGOUT = new javax.swing.JLabel();
-        jLabelUSERREG = new javax.swing.JLabel();
-        jLabelVOTER1 = new javax.swing.JLabel();
         jPanelBody = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabelSearch = new javax.swing.JLabel();
@@ -54,8 +49,8 @@ public class Driver extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabelFirstName = new javax.swing.JLabel();
         jLabelLastName = new javax.swing.JLabel();
-        jTextFieldRegLN = new javax.swing.JTextField();
-        jTextFieldDI = new javax.swing.JTextField();
+        jTextFieldFN = new javax.swing.JTextField();
+        jTextFieldMN = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jButtonSAVE = new javax.swing.JButton();
         jButtonDELETE = new javax.swing.JButton();
@@ -67,14 +62,25 @@ public class Driver extends javax.swing.JFrame {
         jLabelLastName2 = new javax.swing.JLabel();
         jLabelLastName3 = new javax.swing.JLabel();
         jLabelLastName4 = new javax.swing.JLabel();
-        jTextFieldC = new javax.swing.JTextField();
-        jTextFieldDE = new javax.swing.JTextField();
-        jTextFieldIB = new javax.swing.JTextField();
+        jTextFieldDOB = new javax.swing.JTextField();
+        jTextFieldLN = new javax.swing.JTextField();
+        jTextFieldGen = new javax.swing.JTextField();
         jLabelLastName5 = new javax.swing.JLabel();
-        jTextFieldDR = new javax.swing.JTextField();
+        jTextFieldAdd = new javax.swing.JTextField();
+        jLabelImage = new javax.swing.JLabel();
+        jButtonImage = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableNRC = new javax.swing.JTable();
+        jPanelMenu = new javax.swing.JPanel();
+        jLabelHome = new javax.swing.JLabel();
+        jLabelCLIENT = new javax.swing.JLabel();
+        jLabelNRC = new javax.swing.JLabel();
+        jLabelPASSPORT = new javax.swing.JLabel();
+        jLabelDRIVER = new javax.swing.JLabel();
+        jLabelLOGOUT = new javax.swing.JLabel();
+        jLabelUSERREG = new javax.swing.JLabel();
+        jLabelVOTER1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,7 +100,7 @@ public class Driver extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelHeaderLayout.setVerticalGroup(
             jPanelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,123 +109,6 @@ public class Driver extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 13, Short.MAX_VALUE))
-        );
-
-        jPanelMenu.setBackground(new java.awt.Color(153, 153, 255));
-        jPanelMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-
-        jLabel3.setFont(new java.awt.Font("Bangla MN", 1, 18)); // NOI18N
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home 2.png"))); // NOI18N
-        jLabel3.setText("Home");
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
-            }
-        });
-
-        jLabelCLIENT.setFont(new java.awt.Font("Bangla MN", 1, 18)); // NOI18N
-        jLabelCLIENT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/client 2.png"))); // NOI18N
-        jLabelCLIENT.setText("Client");
-        jLabelCLIENT.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelCLIENTMouseClicked(evt);
-            }
-        });
-
-        jLabelNRC.setFont(new java.awt.Font("Bangla MN", 1, 18)); // NOI18N
-        jLabelNRC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/id.png"))); // NOI18N
-        jLabelNRC.setText("National Registration Card");
-        jLabelNRC.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelNRCMouseClicked(evt);
-            }
-        });
-
-        jLabelPASSPORT.setFont(new java.awt.Font("Bangla MN", 1, 18)); // NOI18N
-        jLabelPASSPORT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/passport.png"))); // NOI18N
-        jLabelPASSPORT.setText("Passport");
-        jLabelPASSPORT.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelPASSPORTMouseClicked(evt);
-            }
-        });
-
-        jLabelDRIVER.setFont(new java.awt.Font("Bangla MN", 1, 18)); // NOI18N
-        jLabelDRIVER.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/drivers-licence.png"))); // NOI18N
-        jLabelDRIVER.setText("Driver's License");
-        jLabelDRIVER.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jLabelDRIVER.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelDRIVERMouseClicked(evt);
-            }
-        });
-
-        jLabelLOGOUT.setFont(new java.awt.Font("Bangla MN", 1, 18)); // NOI18N
-        jLabelLOGOUT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/sign-out.png"))); // NOI18N
-        jLabelLOGOUT.setText("Log Out/ Sign Out");
-        jLabelLOGOUT.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelLOGOUTMouseClicked(evt);
-            }
-        });
-
-        jLabelUSERREG.setFont(new java.awt.Font("Al Bayan", 1, 18)); // NOI18N
-        jLabelUSERREG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/register.png"))); // NOI18N
-        jLabelUSERREG.setText("User Registion");
-        jLabelUSERREG.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelUSERREGMouseClicked(evt);
-            }
-        });
-
-        jLabelVOTER1.setFont(new java.awt.Font("Bangla MN", 1, 18)); // NOI18N
-        jLabelVOTER1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/voters.png"))); // NOI18N
-        jLabelVOTER1.setText("Voter's Card");
-        jLabelVOTER1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelVOTER1MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanelMenuLayout = new javax.swing.GroupLayout(jPanelMenu);
-        jPanelMenu.setLayout(jPanelMenuLayout);
-        jPanelMenuLayout.setHorizontalGroup(
-            jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelMenuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabelCLIENT)
-                    .addComponent(jLabelNRC)
-                    .addComponent(jLabelUSERREG)
-                    .addGroup(jPanelMenuLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabelPASSPORT))
-                    .addComponent(jLabelLOGOUT)
-                    .addComponent(jLabelVOTER1)
-                    .addComponent(jLabelDRIVER))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanelMenuLayout.setVerticalGroup(
-            jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelMenuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(jLabelCLIENT)
-                .addGap(18, 18, 18)
-                .addComponent(jLabelNRC)
-                .addGap(18, 18, 18)
-                .addComponent(jLabelPASSPORT)
-                .addGap(18, 18, 18)
-                .addComponent(jLabelVOTER1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabelDRIVER)
-                .addGap(18, 18, 18)
-                .addComponent(jLabelLOGOUT)
-                .addGap(18, 18, 18)
-                .addComponent(jLabelUSERREG)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanelBody.setBackground(new java.awt.Color(255, 255, 255));
@@ -260,10 +149,10 @@ public class Driver extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Client Information:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Malgun Gothic Semilight", 1, 14), new java.awt.Color(51, 51, 255))); // NOI18N
 
         jLabelFirstName.setFont(new java.awt.Font("Eurostile", 1, 14)); // NOI18N
-        jLabelFirstName.setText("License Number:");
+        jLabelFirstName.setText("First Name:");
 
         jLabelLastName.setFont(new java.awt.Font("Eurostile", 1, 14)); // NOI18N
-        jLabelLastName.setText("Date of Issue:");
+        jLabelLastName.setText("Middle Name:");
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Operations:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Malgun Gothic Semilight", 1, 14), new java.awt.Color(0, 0, 255))); // NOI18N
 
@@ -342,23 +231,38 @@ public class Driver extends javax.swing.JFrame {
                 .addComponent(jButtonCLEAR)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonPRINT)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         jLabelClientID.setFont(new java.awt.Font("Eurostile", 1, 14)); // NOI18N
         jLabelClientID.setText("Client ID: ");
 
         jLabelLastName2.setFont(new java.awt.Font("Eurostile", 1, 14)); // NOI18N
-        jLabelLastName2.setText("Issued by :");
+        jLabelLastName2.setText("Gender:");
 
         jLabelLastName3.setFont(new java.awt.Font("Eurostile", 1, 14)); // NOI18N
-        jLabelLastName3.setText("Date of Expiry :");
+        jLabelLastName3.setText("Last Name:");
 
         jLabelLastName4.setFont(new java.awt.Font("Eurostile", 1, 14)); // NOI18N
-        jLabelLastName4.setText("Code :");
+        jLabelLastName4.setText("Date of Birth :");
+
+        jTextFieldLN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldLNActionPerformed(evt);
+            }
+        });
 
         jLabelLastName5.setFont(new java.awt.Font("Eurostile", 1, 14)); // NOI18N
-        jLabelLastName5.setText("Driver's Restriction :");
+        jLabelLastName5.setText("Address :");
+
+        jLabelImage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jButtonImage.setText("INSERT IMAGE");
+        jButtonImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonImageActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -366,62 +270,87 @@ public class Driver extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelFirstName)
-                    .addComponent(jLabelClientID)
-                    .addComponent(jLabelLastName)
-                    .addComponent(jLabelLastName4)
-                    .addComponent(jLabelLastName2)
-                    .addComponent(jLabelLastName5)
-                    .addComponent(jLabelLastName3))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabelClientID)
+                        .addGap(27, 27, 27)
+                        .addComponent(jTextFieldCID, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabelImage, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonImage))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabelFirstName)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextFieldFN, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelLastName3)
+                                    .addComponent(jLabelLastName))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldMN, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldLN, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                    .addComponent(jLabelLastName5)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                    .addComponent(jLabelLastName2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldGen, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                    .addComponent(jLabelLastName4)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextFieldDOB, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextFieldDE)
-                    .addComponent(jTextFieldDI)
-                    .addComponent(jTextFieldRegLN)
-                    .addComponent(jTextFieldC)
-                    .addComponent(jTextFieldIB)
-                    .addComponent(jTextFieldCID, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                    .addComponent(jTextFieldDR))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64))
+                .addGap(21, 21, 21))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelImage, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jButtonImage)))
+                .addGap(13, 13, 13)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelClientID)
                     .addComponent(jTextFieldCID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelFirstName)
-                    .addComponent(jTextFieldRegLN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jTextFieldFN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldDI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                    .addComponent(jLabelLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldMN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelLastName3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldDE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jTextFieldLN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelLastName4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jTextFieldDOB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelLastName2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldIB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldGen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelLastName5, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldDR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jTextFieldAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(22, 22, 22)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "All Client's Information:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Malgun Gothic Semilight", 1, 14), new java.awt.Color(0, 0, 255))); // NOI18N
@@ -431,7 +360,7 @@ public class Driver extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Client ID", "License No.", "Date Issued", "Date Expiry", "Code", "Issued By", "Restriction"
+                "Client ID", "F. Name", "M. Name", "L. Name", "D.O.B", "Gender", "Address"
             }
         ));
         jTableNRC.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -445,17 +374,14 @@ public class Driver extends javax.swing.JFrame {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanelBodyLayout = new javax.swing.GroupLayout(jPanelBody);
@@ -465,22 +391,135 @@ public class Driver extends javax.swing.JFrame {
             .addGroup(jPanelBodyLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelBodyLayout.setVerticalGroup(
             jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBodyLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanelBodyLayout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanelMenu.setBackground(new java.awt.Color(255, 255, 51));
+        jPanelMenu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+
+        jLabelHome.setFont(new java.awt.Font("Bangla MN", 1, 18)); // NOI18N
+        jLabelHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home 2.png"))); // NOI18N
+        jLabelHome.setText("Home");
+        jLabelHome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelHomeMouseClicked(evt);
+            }
+        });
+
+        jLabelCLIENT.setFont(new java.awt.Font("Bangla MN", 1, 18)); // NOI18N
+        jLabelCLIENT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/client 2.png"))); // NOI18N
+        jLabelCLIENT.setText("Client");
+        jLabelCLIENT.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabelNRC.setFont(new java.awt.Font("Bangla MN", 1, 18)); // NOI18N
+        jLabelNRC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/id.png"))); // NOI18N
+        jLabelNRC.setText("National Registration Card");
+        jLabelNRC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelNRCMouseClicked(evt);
+            }
+        });
+
+        jLabelPASSPORT.setFont(new java.awt.Font("Bangla MN", 1, 18)); // NOI18N
+        jLabelPASSPORT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/passport.png"))); // NOI18N
+        jLabelPASSPORT.setText("Passport");
+        jLabelPASSPORT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelPASSPORTMouseClicked(evt);
+            }
+        });
+
+        jLabelDRIVER.setFont(new java.awt.Font("Bangla MN", 1, 18)); // NOI18N
+        jLabelDRIVER.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/drivers-licence.png"))); // NOI18N
+        jLabelDRIVER.setText("Driver's License");
+        jLabelDRIVER.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelDRIVERMouseClicked(evt);
+            }
+        });
+
+        jLabelLOGOUT.setFont(new java.awt.Font("Bangla MN", 1, 18)); // NOI18N
+        jLabelLOGOUT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/sign-out.png"))); // NOI18N
+        jLabelLOGOUT.setText("Log Out/ Sign Out");
+        jLabelLOGOUT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelLOGOUTMouseClicked(evt);
+            }
+        });
+
+        jLabelUSERREG.setFont(new java.awt.Font("Al Bayan", 1, 18)); // NOI18N
+        jLabelUSERREG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/register.png"))); // NOI18N
+        jLabelUSERREG.setText("User Registion");
+        jLabelUSERREG.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelUSERREGMouseClicked(evt);
+            }
+        });
+
+        jLabelVOTER1.setFont(new java.awt.Font("Bangla MN", 1, 18)); // NOI18N
+        jLabelVOTER1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/voters.png"))); // NOI18N
+        jLabelVOTER1.setText("Voter's Card");
+        jLabelVOTER1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelVOTER1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelMenuLayout = new javax.swing.GroupLayout(jPanelMenu);
+        jPanelMenu.setLayout(jPanelMenuLayout);
+        jPanelMenuLayout.setHorizontalGroup(
+            jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelHome)
+                    .addComponent(jLabelCLIENT)
+                    .addComponent(jLabelNRC)
+                    .addComponent(jLabelUSERREG)
+                    .addGroup(jPanelMenuLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabelPASSPORT))
+                    .addComponent(jLabelLOGOUT)
+                    .addComponent(jLabelVOTER1)
+                    .addComponent(jLabelDRIVER))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelMenuLayout.setVerticalGroup(
+            jPanelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelHome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelCLIENT)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelNRC)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelPASSPORT)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelVOTER1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelDRIVER)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelLOGOUT)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabelUSERREG)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -494,7 +533,8 @@ public class Driver extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jPanelBody, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -506,23 +546,123 @@ public class Driver extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void jTextFieldSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSearchActionPerformed
+
+    private void jTextFieldSearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldSearchKeyPressed
+        // How to Search
+        DefaultTableModel tbModel = (DefaultTableModel)jTableNRC.getModel();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(tbModel);
+        jTableNRC.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(jTextFieldSearch.getText().trim()));
+    }//GEN-LAST:event_jTextFieldSearchKeyPressed
+
+    private void jButtonSAVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSAVEActionPerformed
+        // TODO add your handling code here:
+        if(jTextFieldFN.getText().equals("")||jTextFieldMN.getText().equals("")||jTextFieldMN.getText().equals("")||jTextFieldLN.getText().equals("")||jTextFieldDOB.getText().equals("")||jTextFieldGen.getText().equals("")){
+            // code for left blank fields
+            JOptionPane.showMessageDialog(this, "Please Enter All Data!");
+
+        }else{
+            // if all data is enter
+            //store enter data into string array DATA
+            String data[] = {jTextFieldFN.getText(), jTextFieldMN.getText(), jTextFieldMN.getText(), jTextFieldLN.getText(), jTextFieldDOB.getText(), jTextFieldGen.getText()};
+
+            DefaultTableModel tbModel = (DefaultTableModel)jTableNRC.getModel();
+            //add string array data
+            tbModel.addRow(data);// row added
+            //sucessfully added messge
+            JOptionPane.showMessageDialog(this, "Add Data Successfully!");
+            jTextFieldFN.setText("");
+            jTextFieldMN.setText("");
+            jTextFieldMN.setText(null);
+            jTextFieldLN.setText("");
+            jTextFieldDOB.setText("");
+            jTextFieldGen.setText("");
+            
+        }
+    }//GEN-LAST:event_jButtonSAVEActionPerformed
+
+    private void jButtonDELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDELETEActionPerformed
+        // TODO add your handling code here:
+        //Delete the information in table
+        DefaultTableModel tbModel = (DefaultTableModel)jTableNRC.getModel();
+        if(jTableNRC.getSelectedRow()==-1){
+            if(jTableNRC.getRowCount()==0){
+                JOptionPane.showMessageDialog(this, "Table is Empty");
+            }else{
+                JOptionPane.showMessageDialog(this, "You must enter all");
+            }
+        }else{
+            tbModel.removeRow(jTableNRC.getSelectedRow());
+        }     
+    }//GEN-LAST:event_jButtonDELETEActionPerformed
+
+    private void jButtonUPDATEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUPDATEActionPerformed
+
+        //Update the table
+        DefaultTableModel tbModel = (DefaultTableModel)jTableNRC.getModel();
+        if(jTableNRC.getSelectedRow()==-1){
+            if(jTableNRC.getRowCount()==0){
+                JOptionPane.showMessageDialog(this, "Table is Empty");
+            }else{
+                JOptionPane.showMessageDialog(this, "You must enter all");
+            }
+        }else{
+            tbModel.setValueAt(jTextFieldFN.getText(),jTableNRC.getSelectedRow(),0);
+            tbModel.setValueAt(jTextFieldMN.getText(),jTableNRC.getSelectedRow(),1);
+            tbModel.setValueAt(jTextFieldMN.getText(),jTableNRC.getSelectedRow(),2);
+            tbModel.setValueAt(jTextFieldLN.getText(),jTableNRC.getSelectedRow(),3);
+            tbModel.setValueAt(jTextFieldDOB.getText(),jTableNRC.getSelectedRow(),4);
+            tbModel.setValueAt(jTextFieldGen.getText(),jTableNRC.getSelectedRow(),5);
+        }
+    }//GEN-LAST:event_jButtonUPDATEActionPerformed
+
+    private void jButtonCLEARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCLEARActionPerformed
+        // TODO add your handling code here:
+        jTextFieldFN.setText("");
+        jTextFieldGen.setText("");
+        jTextFieldMN.setText("");
+        jTextFieldLN.setText("");
+        jTextFieldMN.setText(null);
+        jTextFieldDOB.setText("");
+        jTextFieldCID.setText("");
+    }//GEN-LAST:event_jButtonCLEARActionPerformed
+
+    private void jButtonPRINTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPRINTActionPerformed
+        // TODO add your handling code here:
+        MessageFormat header=new MessageFormat("Print Report");
+        MessageFormat footer=new MessageFormat("Page(0,number,integer)");
+        try{
+            jTableNRC.print(JTable.PrintMode.NORMAL, header, footer);
+        }catch(Exception e){
+            System.out.println("Error Client Information Print Button");
+        }
+    }//GEN-LAST:event_jButtonPRINTActionPerformed
+
+    private void jTableNRCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableNRCMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel tbModel = (DefaultTableModel)jTableNRC.getModel();
+        jTextFieldCID.setText(tbModel.getValueAt(jTableNRC.getSelectedRow(), 0).toString());
+        jTextFieldFN.setText(tbModel.getValueAt(jTableNRC.getSelectedRow(), 1).toString());
+        jTextFieldMN.setText(tbModel.getValueAt(jTableNRC.getSelectedRow(), 2).toString());
+        jTextFieldMN.setText(tbModel.getValueAt(jTableNRC.getSelectedRow(), 3).toString());
+        jTextFieldLN.setText(tbModel.getValueAt(jTableNRC.getSelectedRow(), 4).toString());
+        jTextFieldDOB.setText(tbModel.getValueAt(jTableNRC.getSelectedRow(), 5).toString());
+        jTextFieldGen.setText(tbModel.getValueAt(jTableNRC.getSelectedRow(), 6).toString());
+    }//GEN-LAST:event_jTableNRCMouseClicked
+
+    private void jLabelHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHomeMouseClicked
         this.dispose();
         new Home().setVisible(true);
-    }//GEN-LAST:event_jLabel3MouseClicked
-
-    private void jLabelCLIENTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCLIENTMouseClicked
-        // TODO add your handling code here:
-        this.dispose();
-        ClientInformation ci=new ClientInformation();
-        ci.setVisible(true);
-    }//GEN-LAST:event_jLabelCLIENTMouseClicked
+    }//GEN-LAST:event_jLabelHomeMouseClicked
 
     private void jLabelNRCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelNRCMouseClicked
         // TODO add your handling code here:
@@ -540,7 +680,9 @@ public class Driver extends javax.swing.JFrame {
 
     private void jLabelDRIVERMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelDRIVERMouseClicked
         // TODO add your handling code here:
-        
+         this.dispose();
+        Driver dr=new Driver();
+        dr.setVisible(true);
     }//GEN-LAST:event_jLabelDRIVERMouseClicked
 
     private void jLabelLOGOUTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLOGOUTMouseClicked
@@ -553,7 +695,7 @@ public class Driver extends javax.swing.JFrame {
     private void jLabelUSERREGMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelUSERREGMouseClicked
         // TODO add your handling code here:
         this.dispose();
-        UserReg UR=new UserReg();
+        UserReg UR = new UserReg();
         UR.setVisible(true);
     }//GEN-LAST:event_jLabelUSERREGMouseClicked
 
@@ -564,107 +706,30 @@ public class Driver extends javax.swing.JFrame {
         vc.setVisible(true);
     }//GEN-LAST:event_jLabelVOTER1MouseClicked
 
-    private void jTextFieldSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSearchActionPerformed
+    private void jButtonImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImageActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSearchActionPerformed
+         JFileChooser browseImageFile = new JFileChooser();
+        //Filter image extensions
+        FileNameExtensionFilter fnef = new FileNameExtensionFilter("IMAGES", "png", "jpg", "jpeg");
+        browseImageFile.addChoosableFileFilter(fnef);
+        int showOpenDialogue = browseImageFile.showOpenDialog(null);
+        
+        if (showOpenDialogue == JFileChooser.APPROVE_OPTION) {
+            File selectedImageFile = browseImageFile.getSelectedFile();
+            String selectedImagePath = selectedImageFile.getAbsolutePath();
+            JOptionPane.showMessageDialog(null, selectedImagePath);
+            //Display image on jlable
+            ImageIcon ii = new ImageIcon(selectedImagePath);
+//            Resize image to fit jlabel
+            Image image = ii.getImage().getScaledInstance(jLabelImage.getWidth(), jLabelImage.getHeight(), Image.SCALE_SMOOTH);
+            
+            jLabelImage.setIcon(new ImageIcon(image));
+        }
+    }//GEN-LAST:event_jButtonImageActionPerformed
 
-    private void jTextFieldSearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldSearchKeyPressed
-        // How to Search
-        DefaultTableModel tbModel = (DefaultTableModel)jTableNRC.getModel();
-        TableRowSorter<DefaultTableModel> tr=new TableRowSorter<DefaultTableModel>(tbModel);
-        jTableNRC.setRowSorter(tr);
-        tr.setRowFilter(RowFilter.regexFilter(jTextFieldSearch.getText().trim()));
-    }//GEN-LAST:event_jTextFieldSearchKeyPressed
-
-    private void jButtonSAVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSAVEActionPerformed
+    private void jTextFieldLNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLNActionPerformed
         // TODO add your handling code here:
-        if(jTextFieldRegLN.getText().equals("")||jTextFieldDI.getText().equals("")||jTextFieldDI.getText().equals("")||jTextFieldDE.getText().equals("")||jTextFieldC.getText().equals("")||jTextFieldIB.getText().equals("")){
-            // code for left blank fields
-            JOptionPane.showMessageDialog(this, "Please Enter All Data!");
-
-        }else{
-            // if all data is enter
-            //store enter data into string array DATA
-            String data[] = {jTextFieldRegLN.getText(), jTextFieldDI.getText(), jTextFieldDI.getText(), jTextFieldDE.getText(), jTextFieldC.getText(), jTextFieldIB.getText()};
-
-            DefaultTableModel tbModel = (DefaultTableModel)jTableNRC.getModel();
-            //add string array data
-            tbModel.addRow(data);// row added
-            //sucessfully added messge
-            JOptionPane.showMessageDialog(this, "Add Data Successfully!");
-            jTextFieldRegLN.setText("");
-            jTextFieldDI.setText("");
-            jTextFieldDI.setText(null);
-            jTextFieldDE.setText("");
-            jTextFieldC.setText("");
-            jTextFieldIB.setText("");
-    }//GEN-LAST:event_jButtonSAVEActionPerformed
-    }
-    private void jButtonDELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDELETEActionPerformed
-        // TODO add your handling code here:
-        //Delete the information in table
-        DefaultTableModel tbModel = (DefaultTableModel)jTableNRC.getModel();
-        if(jTableNRC.getSelectedRow()==-1){
-            if(jTableNRC.getRowCount()==0){
-                JOptionPane.showMessageDialog(this, "Table is Empty");
-            }else{
-                JOptionPane.showMessageDialog(this, "You must enter all");
-            }
-        }else{
-            tbModel.removeRow(jTableNRC.getSelectedRow());
-    }//GEN-LAST:event_jButtonDELETEActionPerformed
-    }
-    private void jButtonUPDATEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUPDATEActionPerformed
-
-        //Update the table
-        DefaultTableModel tbModel = (DefaultTableModel)jTableNRC.getModel();
-        if(jTableNRC.getSelectedRow()==-1){
-            if(jTableNRC.getRowCount()==0){
-                JOptionPane.showMessageDialog(this, "Table is Empty");
-            }else{
-                JOptionPane.showMessageDialog(this, "You must enter all");
-            }
-        }else{
-            tbModel.setValueAt(jTextFieldRegLN.getText(),jTableNRC.getSelectedRow(),0);
-            tbModel.setValueAt(jTextFieldDI.getText(),jTableNRC.getSelectedRow(),1);
-            tbModel.setValueAt(jTextFieldDI.getText(),jTableNRC.getSelectedRow(),2);
-            tbModel.setValueAt(jTextFieldDE.getText(),jTableNRC.getSelectedRow(),3);
-            tbModel.setValueAt(jTextFieldC.getText(),jTableNRC.getSelectedRow(),4);
-            tbModel.setValueAt(jTextFieldIB.getText(),jTableNRC.getSelectedRow(),5);
-    }//GEN-LAST:event_jButtonUPDATEActionPerformed
-    }
-    private void jButtonCLEARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCLEARActionPerformed
-        // TODO add your handling code here:
-        jTextFieldRegLN.setText("");
-        jTextFieldIB.setText("");
-        jTextFieldDI.setText("");
-        jTextFieldDE.setText("");
-        jTextFieldDI.setText(null);
-        jTextFieldC.setText("");
-        jTextFieldCID.setText("");
-    }//GEN-LAST:event_jButtonCLEARActionPerformed
-
-    private void jButtonPRINTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPRINTActionPerformed
-        // TODO add your handling code here:
-        MessageFormat header=new MessageFormat("Print Report");
-        MessageFormat footer=new MessageFormat("Page(0,number,integer)");
-        try{
-            jTableNRC.print(JTable.PrintMode.NORMAL, header, footer);
-        }catch(Exception e){
-            System.out.println("Error Client Information Print Button");
-    }//GEN-LAST:event_jButtonPRINTActionPerformed
-    }
-    private void jTableNRCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableNRCMouseClicked
-        // TODO add your handling code here:
-        DefaultTableModel tbModel = (DefaultTableModel)jTableNRC.getModel();
-        jTextFieldCID.setText(tbModel.getValueAt(jTableNRC.getSelectedRow(), 0).toString());
-        jTextFieldRegLN.setText(tbModel.getValueAt(jTableNRC.getSelectedRow(), 1).toString());
-        jTextFieldDI.setText(tbModel.getValueAt(jTableNRC.getSelectedRow(), 2).toString());
-        jTextFieldDI.setText(tbModel.getValueAt(jTableNRC.getSelectedRow(), 3).toString());
-        jTextFieldDE.setText(tbModel.getValueAt(jTableNRC.getSelectedRow(), 4).toString());
-        jTextFieldC.setText(tbModel.getValueAt(jTableNRC.getSelectedRow(), 5).toString());
-        jTextFieldIB.setText(tbModel.getValueAt(jTableNRC.getSelectedRow(), 6).toString());
-    }//GEN-LAST:event_jTableNRCMouseClicked
+    }//GEN-LAST:event_jTextFieldLNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -683,20 +748,20 @@ public class Driver extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Driver.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClientInformation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Driver.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClientInformation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Driver.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClientInformation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Driver.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClientInformation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Driver().setVisible(true);
+                new ClientInformation().setVisible(true);
             }
         });
     }
@@ -704,16 +769,18 @@ public class Driver extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCLEAR;
     private javax.swing.JButton jButtonDELETE;
+    private javax.swing.JButton jButtonImage;
     private javax.swing.JButton jButtonPRINT;
     private javax.swing.JButton jButtonSAVE;
     private javax.swing.JButton jButtonUPDATE;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelCLIENT;
     private javax.swing.JLabel jLabelClientID;
     private javax.swing.JLabel jLabelDRIVER;
     private javax.swing.JLabel jLabelFirstName;
+    private javax.swing.JLabel jLabelHome;
+    private javax.swing.JLabel jLabelImage;
     private javax.swing.JLabel jLabelLOGOUT;
     private javax.swing.JLabel jLabelLastName;
     private javax.swing.JLabel jLabelLastName2;
@@ -734,13 +801,13 @@ public class Driver extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelMenu;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableNRC;
-    private javax.swing.JTextField jTextFieldC;
+    private javax.swing.JTextField jTextFieldAdd;
     private javax.swing.JTextField jTextFieldCID;
-    private javax.swing.JTextField jTextFieldDE;
-    private javax.swing.JTextField jTextFieldDI;
-    private javax.swing.JTextField jTextFieldDR;
-    private javax.swing.JTextField jTextFieldIB;
-    private javax.swing.JTextField jTextFieldRegLN;
+    private javax.swing.JTextField jTextFieldDOB;
+    private javax.swing.JTextField jTextFieldFN;
+    private javax.swing.JTextField jTextFieldGen;
+    private javax.swing.JTextField jTextFieldLN;
+    private javax.swing.JTextField jTextFieldMN;
     private javax.swing.JTextField jTextFieldSearch;
     // End of variables declaration//GEN-END:variables
 }
