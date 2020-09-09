@@ -3,8 +3,8 @@
 ### This is the repository for the Universal identification System
 
 # ⚙ Requirements 
-  * ##### [Maven](https://breakdance.github.io/breakdance/) (follow instructions)  
-  * ##### [MySQL](https://breakdance.github.io/breakdance/)   `Create a database after installation.` 
+  * ##### [Maven](https://maven.apache.org/download.cgi) [Instructions](https://maven.apache.org/install.html)  
+  * ##### [MySQL](https://dev.mysql.com/downloads/installer/)   `Create a database after installation.` 
     * ##### Edit the `META-INF/persitence.xml` to change the url, host and username and password.    
 
 # 🔧 Schema
