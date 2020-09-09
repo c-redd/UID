@@ -4,8 +4,7 @@
 
 # ⚙ Requirements 
   * ##### [Maven](https://maven.apache.org/download.cgi) [Instructions](https://maven.apache.org/install.html)  
-  * ##### [MySQL](https://dev.mysql.com/downloads/installer/)   `Create a database after installation.` 
-    * ##### Edit the `META-INF/persitence.xml` to change the url, host and username and password.    
+  * ##### [SqLite](https://sqlite.org/download.html)   `Optional` 
 
 # 🔧 Schema
 *   ### **Voters** + **Polling Sation**  
@@ -29,7 +28,7 @@
         VALUES (2, "UNZA");
 
 
-### 📚 Adding dependencies
+## 📚 Adding dependencies
 
 * #### Just edit Maven's config file (`pom.xml`) and add whatever plugin you need 
     
@@ -40,4 +39,5 @@
                 <version>2.2.1</version>
             </dependency>
         </dependencies>
-            
+     
+
